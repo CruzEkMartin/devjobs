@@ -8,13 +8,6 @@ module.exports = {
         './resources/views/**/*.blade.php',
     ],
 
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
-        },
-    },
 
     plugins: [require('@tailwindcss/forms')],
 };
