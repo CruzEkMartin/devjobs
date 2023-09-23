@@ -28,17 +28,6 @@ class VacanteController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -58,29 +47,9 @@ class VacanteController extends Controller
     public function edit(Vacante $vacante)
     {
         //dd($vacante);
+        //si el usuario está autorizado por policy, lo editamos.. solo el usuario que creo la vacante lo puede actualizar
+        $this->authorize('update', $vacante);
         return view('vacantes.edit', ['vacante' => $vacante]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
