@@ -10,9 +10,9 @@ class MostrarVacantes extends Component
 
    protected $listeners = ['eliminarVacante'];
 
-   public function eliminarVacante(Vacante $id)
+   public function eliminarVacante(Vacante $vacante)
    {
-    dd($id);
+    $vacante->delete();
    }
 
     public function render()

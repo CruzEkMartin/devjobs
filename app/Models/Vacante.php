@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Salario;
+use App\Models\Categoria;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Vacante extends Model
 {
@@ -21,4 +23,17 @@ class Vacante extends Model
         'imagen',
         'user_id'
     ];
+
+    //agregamos la relacion para obtener la descripcion de la categoria
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }
+
+    //agregamos la relacion para obtener la descripcion del salario
+    public function salario()
+    {
+        return $this->belongsTo(Salario::class);
+    }
+
 }
