@@ -18,7 +18,8 @@ class VacantePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        //solo los usuarios con rol de reclutador pueden ver la relación de vacantes
+        return $user->rol === 2;
     }
 
     /**
@@ -42,6 +43,8 @@ class VacantePolicy
     public function create(User $user)
     {
         //
+        //solo los usuarios con rol de reclutador pueden crear vacantes
+        return $user->rol === 2;
     }
 
     /**

@@ -14,6 +14,9 @@ class VacanteController extends Controller
      */
     public function index()
     {
+        //prevenir el acceso a la lista de vacantes
+        $this->authorize('viewAny', Vacante::class);
+
         return view('vacantes.index');
     }
 
@@ -24,6 +27,9 @@ class VacanteController extends Controller
      */
     public function create()
     {
+        //prevenir que solo los reclutadores puedan crear vacantes
+        $this->authorize('create', Vacante::class);
+
         return view('vacantes.create');
     }
 
