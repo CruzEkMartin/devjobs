@@ -47,7 +47,7 @@
 
     @cannot('create', App\Models\Vacante::class)
     {{-- //si en el policy no puede crear vacante, entonces es un dev y se debe permitir postularse --}}
-        <livewire:postular-vacante />
+        <livewire:postular-vacante :vacante="$vacante"/>
     @endcannot
 
 

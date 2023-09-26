@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Salario;
+use App\Models\Candidato;
 use App\Models\Categoria;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -36,4 +37,15 @@ class Vacante extends Model
         return $this->belongsTo(Salario::class);
     }
 
+    //agregamos la relacion donde una vacante puede tener muchos candidatos
+    public function candidatos()
+    {
+        return $this->hasMany(Candidato::class);
+    }
+
+    //agregamos la relacion para enviar las notificaciones de la vacante al reclutador que creo la vacante
+    public function reclutador()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

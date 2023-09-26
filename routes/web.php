@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacanteController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NotificacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ Route::get('/dashboard', [VacanteController::class, 'index'])->middleware(['auth
 Route::get('/vacantes/create', [VacanteController::class, 'create'])->middleware(['auth', 'verified'])->name('vacantes.create');
 Route::get('/vacantes/{vacante}/edit', [VacanteController::class, 'edit'])->middleware(['auth', 'verified'])->name('vacantes.edit');
 Route::get('/vacantes/{vacante}', [VacanteController::class, 'show'])->name('vacantes.show');
+
+//notificaciones
+Route::get('/notificaciones', NotificacionController::class)->name('Notificaciones');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
