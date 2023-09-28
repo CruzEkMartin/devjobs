@@ -44,7 +44,9 @@ class HomeVacantes extends Component
         ->when($this->salario, function ($query) {
             $query->where('salario_id', $this->salario);
         })
+        //regresamos el resultado paginado
         ->paginate(20);
+
 
         return view('livewire.home-vacantes', [
             'vacantes' => $vacantes
