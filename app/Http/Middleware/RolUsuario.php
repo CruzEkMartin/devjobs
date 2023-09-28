@@ -16,6 +16,7 @@ class RolUsuario
      */
     public function handle(Request $request, Closure $next)
     {
+        //si es un usuario dev (rol = 1), manda a home
         if ($request->user()->rol === 1) {
             //en caso de que no sea el rol 2, redireccionar al home
             return redirect()->route('home');

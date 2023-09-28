@@ -40,7 +40,7 @@ class Vacante extends Model
     //agregamos la relacion donde una vacante puede tener muchos candidatos
     public function candidatos()
     {
-        return $this->hasMany(Candidato::class);
+        return $this->hasMany(Candidato::class)->orderBy('created_at','DESC');
     }
 
     //agregamos la relacion para enviar las notificaciones de la vacante al reclutador que creo la vacante

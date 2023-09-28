@@ -115,17 +115,18 @@
 
         @auth
 
-            <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-                    {{ __('Mis Vacantes') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
-                    {{ __('Crear Vacante') }}
-                </x-responsive-nav-link>
-            </div>
+            @can('create', App\Models\Vacante::class)
+                <div class="pt-2 pb-3 space-y-1">
+                    <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
+                        {{ __('Mis Vacantes') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                        {{ __('Crear Vacante') }}
+                    </x-responsive-nav-link>
+                </div>
 
 
-            @if (auth()->user()->rol === 2)
+
                 <div class="flex gap-2 items-center p-3">
                     <a href="{{ route('notificaciones') }}"
                         class=" w-7 h-7 bg-indigo-600 hover:bg-indigo-800 rounded-full flex flex-col justify-center items-center text-sm font-extrabold text-white ">
@@ -138,8 +139,7 @@
                         )
                     </p>
                 </div>
-            @endif
-
+            @endcan
 
             <!-- Responsive Settings Options -->
             <div class="pt-4 pb-1 border-t border-gray-200">
