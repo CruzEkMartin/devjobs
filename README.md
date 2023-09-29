@@ -9,4 +9,4 @@
 ## Imágenes
 <br/>
 
-<img src="{{ url('public/Screens/Captura1.png') }}" width="400">
+<img src="https://github.com/CruzEkMartin/devjobs/blob/develop/public/Screens/Captura1.PNG" width="400">
